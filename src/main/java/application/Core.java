@@ -17,29 +17,29 @@ public class Core {
     ILabyrinthe labyrinthe;
 
     protected void initLabyrinthe() {
-        // creation du labyrinthe
+        // Création du labyrinthe
         labyrinthe = new labyrinthe.Labyrinthe();
         chargementLaby("labys/level3.txt");
     }
 
     protected void initSprites(IVue vue) {
-        // creation du heros 
-        //IPersonnage h = new personnages.Heros(labyrinthe.getEntree());
-        //this.heros = new HerosSprite(h, labyrinthe);
-        //vue.add(this.heros);
+        // Création du heros 
+        // IPersonnage h = new personnages.Heros(labyrinthe.getEntree());
+        // this.heros = new HerosSprite(h, labyrinthe);
+        // vue.add(this.heros);
     }
 
     protected void jeu(IVue vue) {
-        // boucle principale
+        // Boucle principale
         ISalle destination = null;
         while (!labyrinthe.getSortie().equals(heros.getPosition())) {
-            // choix et deplacement
+            // Choix et déplacement
             for (IPersonnage p : vue) {
                 Collection<ISalle> sallesAccessibles = labyrinthe.sallesAccessibles(p);
-                destination = p.faitSonChoix(sallesAccessibles); // on demande au personnage de faire son choix de salle
-                p.setPosition(destination); // deplacement
+                destination = p.faitSonChoix(sallesAccessibles); // On demande au personnage de faire son choix de salle
+                p.setPosition(destination); // Déplacement
             }
-            // detection des collisions
+            // Détection des collisions
             boolean collision = false;
             ISprite monstre = null;
             for (ISprite p : vue) {
@@ -57,7 +57,6 @@ public class Core {
                 System.out.println("Perdu !");
                 System.out.println("Plus que " + vue.size() + " personnages ...");
             }
-
             temporisation(50);
         }
         System.out.println("Gagné!");
@@ -73,7 +72,7 @@ public class Core {
 
     protected void temporisation(int nb) {
         try {
-            Thread.sleep(nb); // pause de nb millisecondes
+            Thread.sleep(nb); // Pause de nb millisecondes
         } catch (InterruptedException ie) {
         };
     }
