@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import vue2D.javafx.Vue;
 
 
+
 /**
  *
  * @author INFO Professors team
