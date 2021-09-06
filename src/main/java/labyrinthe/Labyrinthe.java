@@ -7,7 +7,7 @@ import outils.Fichier;
 import personnages.IPersonnage;
 
 /**
- *
+ * Classe Labyrinthe
  * @author INFO Professors team
  */
 public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {

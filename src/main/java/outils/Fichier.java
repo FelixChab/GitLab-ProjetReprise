@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author INFO Professors team
  */
 public class Fichier {
-    Scanner sc=null;
+    Scanner sc = null;
     
     public Fichier(String nomFichier){
         try{

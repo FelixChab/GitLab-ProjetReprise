@@ -9,7 +9,7 @@ import vue2D.IVue;
 import vue2D.sprites.ISprite;
 
 /**
- *
+ * Classe Core
  * @author INFO Professors team
  */
 public class Core {

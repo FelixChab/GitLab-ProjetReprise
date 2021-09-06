@@ -9,7 +9,7 @@ import vue2D.javafx.Vue;
 
 
 /**
- *
+ * Classe MainJavaFX
  * @author INFO Professors team
  */
 public class MainJavaFX extends Application {
