@@ -10,7 +10,7 @@ import labyrinthe.ISalle;
 import vue2D.sprites.ISprite;
 
 /**
-*
+* Classe Dessin
 * @author INFO Professors team
 */
 
@@ -22,6 +22,11 @@ public class Dessin extends Canvas {
     private GraphicsContext tampon;
     private Image solImage;
    
+    /**
+     * Constructeur de la classe
+     * @param labyrinthe le labyrinthe
+     * @param sprites les sprites
+     */
     public Dessin(ILabyrinthe labyrinthe, Collection<ISprite> sprites)
     {
         this.sprites = sprites;
@@ -38,8 +43,7 @@ public class Dessin extends Canvas {
     }
     
     public void dessinFond(){
-        tampon.drawImage(solImage,0,0,unite*labyrinthe.getLargeur(),
-                unite*labyrinthe.getHauteur());
+        tampon.drawImage(solImage,0,0,unite*labyrinthe.getLargeur(), unite*labyrinthe.getHauteur());
     }
 
 }
