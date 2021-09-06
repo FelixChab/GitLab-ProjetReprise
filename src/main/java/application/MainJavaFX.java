@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import vue2D.javafx.Vue;
 
 
+
 /**
  *
  * @author INFO Professors team
@@ -17,34 +18,30 @@ public class MainJavaFX extends Application {
     @Override
     public void start(Stage stage) {
         core = new Core();
-        core.initLabyrinthe(); // initialisation du labyrinthe
-        Vue vue = new vue2D.javafx.Vue(core.labyrinthe); // creation de la vue
-        core.initSprites(vue); // creation des sprites dans la vue
-        
+        core.initLabyrinthe(); // Initialisation du labyrinthe
+        Vue vue = new vue2D.javafx.Vue(core.labyrinthe); // Création de la vue
+        core.initSprites(vue); // Création des sprites dans la vue  
         stage.setScene(vue.scene);
         stage.show();
+        System.out.println("test");
         
-        //rafraichissement de la vue
+        // Rafraîchissement de la vue
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 vue.dessiner();
             }
- 
         };
         timer.start();
-        
         Task<Void> task = new Task<Void>() {
             @Override public Void call() {
                  core.jeu(vue); // go !
                  return null;
             }
         };
-        
         Thread th = new Thread(task);
         th.setDaemon(true);
         th.start();
-       
     }
 
     public static void main(String[] args) {
