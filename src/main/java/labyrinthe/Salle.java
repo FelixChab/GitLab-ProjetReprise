@@ -47,4 +47,18 @@ public class Salle implements ISalle {
         return false; 
     }
     
+    /**
+     * ???
+     */
+    public void equals() {
+        // à compléter
+    }
+    
+    /***
+     * ???
+     */
+    public void hashcode() {
+        // à compléter
+    }
+    
 }

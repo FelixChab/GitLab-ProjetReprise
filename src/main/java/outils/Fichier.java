@@ -18,8 +18,8 @@ public class Fichier {
 	catch(Exception e){ System.out.println(e); }     
     }
     
-  // retourne le prochain entier dans le fichier
-  // retourne -1 s'il n'y en a pas
+  // Retourne le prochain entier dans le fichier
+  // Retourne -1 s'il n'y en a pas
     public int lireNombre(){
         if (sc.hasNextInt()){
             return sc.nextInt();
