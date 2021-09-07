@@ -2,7 +2,7 @@ package labyrinthe;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Scanner;
 
 import outils.Fichier;
 import personnages.IPersonnage;
@@ -13,15 +13,12 @@ import personnages.IPersonnage;
  */
 public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
 
-    protected ISalle entree;
-    protected ISalle sortie;
-    private int largeur;
-    private int hauteur;
-    private HashSet<Salle> salles = new HashSet<>();
+    protected ISalle entree, sortie;
+    private int largeur, hauteur;
 
     @Override
     public void creerLabyrinthe(String file) {
-        Fichier f = new Fichier(file);
+        Fichier f = new Fichier(file);    
         // Dimensions du Labyrinthe
         largeur = f.lireNombre(); 
         hauteur = f.lireNombre();
@@ -31,7 +28,9 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
         int boucleX = f.lireNombre();
         int boucleY = f.lireNombre();
         while (boucleX >= 0 && boucleY >= 0 && boucleX <= largeur && boucleY <= hauteur) {
-            salles.add(new Salle(boucleX, boucleY));
+            this.add(new Salle(boucleX, boucleY)); // On ajoute chaque nouvelle salle à l'ArrayList<ISalle>
+            boucleX++;
+            boucleY++;
         }
     }
 

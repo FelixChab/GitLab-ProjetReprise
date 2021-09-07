@@ -23,8 +23,6 @@ public class MainJavaFX extends Application {
         core.initSprites(vue); // Création des sprites dans la vue  
         stage.setScene(vue.scene);
         stage.show();
-        System.out.println("test");
-        
         // Rafraîchissement de la vue
         AnimationTimer timer = new AnimationTimer() {
             @Override
