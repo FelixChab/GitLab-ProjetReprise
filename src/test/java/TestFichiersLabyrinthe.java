@@ -18,20 +18,27 @@ public class TestFichiersLabyrinthe {
         File[] fichiers = repertoire.listFiles();
         return fichiers;
     }
-
+    
+    /**
+     * Méthode de tests des fichiers de labyrinthe.
+     */
     @Test
     public void testCoordonneesSalles() {
         File repertoire = new File("labys/");
         File[] fichiers = getFiles(repertoire);
-        fail("not implemented");
+        for(File f : fichiers) {
+            assertTrue(testCoordonneesSallesFichier(f));
+            if (f.getName().contains("Invalide")) {
+                assertFalse(testCoordonneesSallesFichier(f));
+            }
+        }
     }
     
     /**
-     * Méthode de test des coordonnées des salles du fichier.
+     * Méthode de test des coordonnées des salles de fichiers.
      * @param f le fichier utilisé.
      * @return true si les salles sont validées.
      */
-    @Test
     public boolean testCoordonneesSallesFichier(File f) {
         boolean testSalles = false;
         boolean testLaby = false;
