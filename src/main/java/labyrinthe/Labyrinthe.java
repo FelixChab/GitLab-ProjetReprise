@@ -2,7 +2,6 @@ package labyrinthe;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Scanner;
 
 import outils.Fichier;
 import personnages.IPersonnage;
@@ -15,7 +14,11 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
 
     protected ISalle entree, sortie;
     private int largeur, hauteur;
-
+    
+    /**
+     * Méthode qui permet la création du Labyrinthe en lisant le fichier texte donné.
+     * @param file le fichier texte donné.
+     */
     @Override
     public void creerLabyrinthe(String file) {
         Fichier f = new Fichier(file);    
@@ -29,8 +32,8 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
         int boucleY = f.lireNombre();
         while (boucleX >= 0 && boucleY >= 0 && boucleX <= largeur && boucleY <= hauteur) {
             this.add(new Salle(boucleX, boucleY)); // On ajoute chaque nouvelle salle à l'ArrayList<ISalle>
-            boucleX++;
-            boucleY++;
+            boucleX = f.lireNombre();
+            boucleY = f.lireNombre();
         }
     }
 

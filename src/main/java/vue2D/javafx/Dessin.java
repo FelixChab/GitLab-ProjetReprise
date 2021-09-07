@@ -20,15 +20,14 @@ public class Dessin extends Canvas {
     private ILabyrinthe labyrinthe;
     private int unite = 15;
     private GraphicsContext tampon;
-    private Image solImage;
+    private Image solImage, ground;
    
     /**
      * Constructeur de la classe
      * @param labyrinthe le labyrinthe
      * @param sprites les sprites
      */
-    public Dessin(ILabyrinthe labyrinthe, Collection<ISprite> sprites)
-    {
+    public Dessin(ILabyrinthe labyrinthe, Collection<ISprite> sprites) {
         this.sprites = sprites;
         this.labyrinthe = labyrinthe;
         setWidth(labyrinthe.getLargeur()*unite);
@@ -38,12 +37,25 @@ public class Dessin extends Canvas {
         dessinFond(); 
     }
     
-     public void chargementImages(){
+    /**
+     * Méthode qui charge les images utilisées par le jeu.
+     */
+    public void chargementImages() {
     	solImage = new Image("file:icons/pyramide.jpg");
+        ground = new Image("file:icons/ground.gif");
     }
     
-    public void dessinFond(){
-        tampon.drawImage(solImage,0,0,unite*labyrinthe.getLargeur(), unite*labyrinthe.getHauteur());
+    /**
+     * Méthode qui dessine l'image de fond du Labyrinthe.
+     */
+    public void dessinFond() {
+        tampon.drawImage(solImage, 0, 0, unite*labyrinthe.getLargeur(), unite*labyrinthe.getHauteur());
     }
-
+    
+    public void dessinSalles() {
+        for (ISalle s : labyrinthe) {
+            tampon.drawImage(ground, s.getX()*unite, s.getY()*unite, unite, unite);
+        }
+    }
+    
 }

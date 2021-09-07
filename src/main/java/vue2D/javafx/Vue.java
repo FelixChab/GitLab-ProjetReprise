@@ -25,8 +25,9 @@ public class Vue extends AVue implements IVue{
     
     @Override
     public void dessiner() {
-     	// recopie du fond (image); murs + salles
-         dessin.dessinFond();
+     	// Recopie du fond (image); murs + salles
+        dessin.dessinFond();
+        dessin.dessinSalles();
     }	
 
 }
