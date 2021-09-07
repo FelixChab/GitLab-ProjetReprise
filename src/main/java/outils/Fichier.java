@@ -1,7 +1,6 @@
 package outils;
 
 import java.io.File;
-import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -21,7 +20,7 @@ public class Fichier {
   // Retourne le prochain entier dans le fichier
   // Retourne -1 s'il n'y en a pas
     public int lireNombre(){
-        if (sc.hasNextInt()){
+        if (sc.hasNextInt() && sc != null){
             return sc.nextInt();
         }
         return -1;

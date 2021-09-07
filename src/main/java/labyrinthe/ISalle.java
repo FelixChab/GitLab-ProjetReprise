@@ -11,4 +11,5 @@ public interface ISalle {
     public int getY(); // Ordonnée salle
 
     public boolean estAdjacente(ISalle autre);
+    
 }

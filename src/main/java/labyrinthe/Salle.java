@@ -47,18 +47,31 @@ public class Salle implements ISalle {
         return false; 
     }
     
-    /**
-     * ???
-     */
-    public void equals() {
-        // à compléter
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
     }
-    
-    /***
-     * ???
-     */
-    public void hashcode() {
-        // à compléter
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Salle other = (Salle) obj;
+        if (this.salleX != other.salleX) {
+            return false;
+        }
+        if (this.salleY != other.salleY) {
+            return false;
+        }
+        return true;
     }
     
 }
