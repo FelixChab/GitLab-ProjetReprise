@@ -1,10 +1,11 @@
 package labyrinthe;
 
+import Exceptions.ExceptionInvalidFile;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import outils.Fichier;
 import personnages.IPersonnage;
+import java.io.IOException;
 
 /**
  * Classe Labyrinthe
@@ -18,10 +19,14 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
     /**
      * Méthode qui permet la création du Labyrinthe en lisant le fichier texte donné.
      * @param file le fichier texte donné.
+     * @throws Exceptions.ExceptionInvalidFile
      */
     @Override
-    public void creerLabyrinthe(String file) {
-        Fichier f = new Fichier(file);    
+    public void creerLabyrinthe(String file) throws ExceptionInvalidFile {
+        Fichier f = new Fichier(file);
+        if (f.testValide(file) == false) {
+            throw new ExceptionInvalidFile("Fichier invalide.");
+        }
         // Dimensions du Labyrinthe
         largeur = f.lireNombre(); 
         hauteur = f.lireNombre();

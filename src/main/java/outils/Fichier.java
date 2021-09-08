@@ -16,8 +16,9 @@ public class Fichier {
     public Fichier(String nomFichier){
         try{
 	    sc = new Scanner(new File(nomFichier));
-	}
-	catch(Exception e){ System.out.println(e); }     
+	} catch(Exception e) { 
+            System.out.println(e);
+        }     
     }
     
     // Retourne le prochain entier dans le fichier.
@@ -37,7 +38,7 @@ public class Fichier {
     public boolean testValide(String nomFichier) {
         boolean fichierValide = false;
         Scanner scNom = new Scanner(System.in);
-        System.out.println("Entrez nom du fichier à vérifier: ");
+        System.out.println("Entrez nom du fichier à vérifier: " + " " + " (ex de nom de fichier: labys/level7.txt)");
         nomFichier = scNom.nextLine();
         System.out.println("Le fichier nommé " + nomFichier + " est en cours de validation...");
         File f = new File(nomFichier);
@@ -45,9 +46,11 @@ public class Fichier {
         testPasDeDoublonFichier(f);
         if (testCoordonneesSallesFichier(f) == true && testPasDeDoublonFichier(f) == true) {
             fichierValide = true;
+            System.out.println("Fichier " + nomFichier + " validé !");
         }
         else {
             fichierValide = false;
+            System.out.println("Fichier " + nomFichier + " invalide.");
         }
         return fichierValide;
     }

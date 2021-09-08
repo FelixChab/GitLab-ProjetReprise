@@ -65,15 +65,22 @@ public class Core {
     private void chargementLaby(String fic) {
         try {
             labyrinthe.creerLabyrinthe(fic);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } 
+        catch (IOException ex) {
+            try {
+                labyrinthe.creerLabyrinthe("labys/level7.txt");
+            } 
+            catch (IOException ei) {   
+                System.out.println("Fichier de secours invalide, extinction système...");
+                System.exit(1);
+            }
         }
     }
 
     protected void temporisation(int nb) {
         try {
             Thread.sleep(nb); // Pause de nb millisecondes
-        } catch (InterruptedException ie) {
-        };
+        } catch (InterruptedException ie) { };
     }
+    
 }
