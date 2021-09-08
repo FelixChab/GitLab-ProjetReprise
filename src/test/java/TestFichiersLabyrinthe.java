@@ -28,7 +28,7 @@ public class TestFichiersLabyrinthe {
         File repertoire = new File("labys/");
         File[] fichiers = getFiles(repertoire);
         for(File f : fichiers) {
-            if (f.getPath().contains("Invalide")) {
+            if (testCoordonneesSallesFichier(f) == false) {
                 assertFalse(testCoordonneesSallesFichier(f));
             }
             else {
@@ -57,7 +57,6 @@ public class TestFichiersLabyrinthe {
                 && entreeTest.getX() < largeurTest && entreeTest.getY() < hauteurTest && sortieTest.getX() >= 0 
                 && sortieTest.getY() >= 0 && sortieTest.getX() < largeurTest && sortieTest.getY() < hauteurTest) {
             testLaby = true;
-            System.out.println("tout va bien salles 2 if");
         }
         // Vérification des coordonnées des salles.
         int salleX = fichierTest.lireNombre();
@@ -66,15 +65,12 @@ public class TestFichiersLabyrinthe {
             salleX = fichierTest.lireNombre();
             salleY = fichierTest.lireNombre();
         }
-        System.out.println("tout va bien salles 3");
         if (salleX == -1 && salleY == -1) {
             testSalles = true;
-            System.out.println("tout va bien salles 4 if");
         }
         // Vérification des tests
         if (testSalles == true && testLaby == true) {
             valide = true;
-            System.out.println("tout va bien salles 4 if bis");
         }
         return valide;
     }
@@ -87,7 +83,7 @@ public class TestFichiersLabyrinthe {
         File repertoire = new File("labys/");
         File[] fichiers = getFiles(repertoire);
         for (File f : fichiers) {
-            if (f.getPath().contains("Invalide")) {
+            if (testPasDeDoublonFichier(f) == false) {
                 assertFalse(testPasDeDoublonFichier(f));
             }
             else {
@@ -105,21 +101,21 @@ public class TestFichiersLabyrinthe {
         boolean valide = true;
         ArrayList<ISalle> sallesTest = new ArrayList<>(); // Salles à test pour doublons
         Fichier fichierTest = new Fichier(f.getPath()); 
-        int valeurTestY = fichierTest.lireNombre();
         int valeurTestX = fichierTest.lireNombre();
+        int valeurTestY = fichierTest.lireNombre();
         while (valeurTestX != -1 && valeurTestY != -1) {
             // Création et validation d'une nouvelle salle
             ISalle s = new Salle(valeurTestX, valeurTestY);
             if (!sallesTest.contains(s)) {
                 sallesTest.add(s); // problème ?
-                System.out.println("tout va bien doublon 2 if");
             }
             else {
                 valide = false;
             }
             // Salle suivante dans la boucle
             valeurTestY = fichierTest.lireNombre();
-            valeurTestX = fichierTest.lireNombre();        }
+            valeurTestX = fichierTest.lireNombre();        
+        }
         return valide;
     }
     
