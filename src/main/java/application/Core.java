@@ -63,6 +63,7 @@ public class Core {
     }
 
     private void chargementLaby(String fic) {
+        // try - catch en cas de fichier inexistant (?)
         try {
             labyrinthe.creerLabyrinthe(fic);
         } 

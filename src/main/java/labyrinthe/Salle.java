@@ -43,8 +43,15 @@ public class Salle implements ISalle {
      */
     @Override
     public boolean estAdjacente(ISalle autre) {
-        // à ce stade, on considère qu'une salle n'est jamais adjacente à une autre
-        return false; 
+        boolean adjacente = false;
+        // Si l'autre salle est situé au-dessus, en-dessous, à gauche, à droite, de la salle actuelle.
+        if (autre.getX() == getX()+1 || autre.getY() == getX()-1 
+         || autre.getX() == getY()+1 || autre.getY() == getY()-1) {
+            // On retire les diagonales qui ne sont pas considérées comme adjacentes.
+            // compléter avec if() bourrins au cas par cas...
+            adjacente = true;
+        }
+        return adjacente;
     }
     
     @Override
