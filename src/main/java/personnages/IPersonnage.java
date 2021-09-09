@@ -9,12 +9,13 @@ import labyrinthe.ISalle;
 */
 public interface IPersonnage {
     
-    // renvoie une salle parmi sallesAccesibles
+    // Renvoie une salle parmi sallesAccesibles
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles);
 
-    // renvoie sa position courante
+    // Renvoie sa position courante
     public ISalle getPosition();
     
-    // definit sa position courante
-    public void setPosition( ISalle s);
+    // Définit sa position courante
+    public void setPosition(ISalle s);
+    
 }

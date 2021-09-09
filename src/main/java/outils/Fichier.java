@@ -1,6 +1,7 @@
 package outils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import labyrinthe.ISalle;
@@ -16,7 +17,7 @@ public class Fichier {
     public Fichier(String nomFichier){
         try{
 	    sc = new Scanner(new File(nomFichier));
-	} catch(Exception e) { 
+	} catch(FileNotFoundException e) {  // FileNotFoundException ou Exception ?
             System.out.println(e);
         }     
     }
@@ -38,7 +39,7 @@ public class Fichier {
     public boolean testValide(String nomFichier) {
         boolean fichierValide = false;
         Scanner scNom = new Scanner(System.in);
-        System.out.println("Entrez nom du fichier à vérifier: " + " " + " (ex de nom de fichier: labys/level7.txt)");
+        System.out.println("Entrez nom du fichier à charger: " + " " + " (ex de nom de fichier: labys/level7.txt)");
         nomFichier = scNom.nextLine();
         System.out.println("Le fichier nommé " + nomFichier + " est en cours de validation...");
         File f = new File(nomFichier);

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import outils.Fichier;
 import personnages.IPersonnage;
-import java.io.IOException;
+import labyrinthe.ISalle;
 
 /**
  * Classe Labyrinthe
@@ -44,7 +44,28 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
 
     @Override
     public Collection<ISalle> sallesAccessibles(IPersonnage bob) {
-        return null;
+        ArrayList<ISalle> salles = new ArrayList<>();
+        // On vérifie que la salle du haut est accessible.
+        ISalle salleHaut = new Salle(bob.getPosition().getX(), bob.getPosition().getY()-1);
+        if (bob.getPosition().estAdjacente(salleHaut) && this.contains(salleHaut)) {
+            salles.add(salleHaut);
+        }
+        // On vérifie que la salle du bas est accessible.
+        ISalle salleBas = new Salle(bob.getPosition().getX(), bob.getPosition().getY()+1);
+        if (bob.getPosition().estAdjacente(salleBas) && this.contains(salleBas)) {
+            salles.add(salleBas);
+        }
+        // On vérifie que la salle de gauche est accessible.
+        ISalle salleGauche = new Salle(bob.getPosition().getX()-1, bob.getPosition().getY());
+        if (bob.getPosition().estAdjacente(salleGauche) && this.contains(salleGauche)) {
+            salles.add(salleGauche);
+        }
+        // On vérifie que la salle de droite est accessible.
+        ISalle salleDroite = new Salle(bob.getPosition().getX()+1, bob.getPosition().getY());
+        if (bob.getPosition().estAdjacente(salleDroite) && this.contains(salleDroite)) {
+            salles.add(salleDroite);
+        }
+        return salles;
     }
 
     @Override

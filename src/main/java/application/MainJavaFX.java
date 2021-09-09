@@ -6,8 +6,6 @@ import javafx.concurrent.Task;
 import javafx.stage.Stage;
 import vue2D.javafx.Vue;
 
-
-
 /**
  * Classe MainJavaFX
  * @author INFO Professors team

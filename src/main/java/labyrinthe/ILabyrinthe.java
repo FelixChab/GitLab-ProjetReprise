@@ -10,18 +10,22 @@ import personnages.IPersonnage;
  */
 public interface ILabyrinthe extends Collection<ISalle> {
 
-    public void creerLabyrinthe(String file) throws IOException; // cree le labyrinthe a partir d'un fichier 
+    // Crée le labyrinthe a partir d'un fichier 
+    public void creerLabyrinthe(String file) throws IOException; 
 
-    public Collection<ISalle> sallesAccessibles(IPersonnage heros); // renvoie les salles accessibles pour le heros
+    // Renvoie les salles accessibles pour le héros
+    public Collection<ISalle> sallesAccessibles(IPersonnage heros); 
 
-    public ISalle getEntree(); // accesseur sur l'entree 
+    // Accesseur sur l'entrée 
+    public ISalle getEntree(); 
 
-    public ISalle getSortie(); // accesseur sur la sortie
+    // Accesseur sur la sortie
+    public ISalle getSortie(); 
 
-    public Collection<ISalle> chemin(ISalle u, ISalle v); // un plus court chemin entre u et v
+    // Un plus court chemin entre u et v
+    public Collection<ISalle> chemin(ISalle u, ISalle v); 
 
-    // dimensions grille
+    // Dimensions grille
     public int getLargeur();
-
     public int getHauteur();
 }
