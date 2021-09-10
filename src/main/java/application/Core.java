@@ -6,6 +6,7 @@ import labyrinthe.ILabyrinthe;
 import labyrinthe.ISalle;
 import personnages.IPersonnage;
 import vue2D.IVue;
+import vue2D.sprites.HerosSprite;
 import vue2D.sprites.ISprite;
 
 /**
@@ -24,9 +25,9 @@ public class Core {
 
     protected void initSprites(IVue vue) {
         // Création du heros 
-        // IPersonnage h = new personnages.Heros(labyrinthe.getEntree());
-        // this.heros = new HerosSprite(h, labyrinthe);
-        // vue.add(this.heros);
+        IPersonnage h = new personnages.Heros(labyrinthe.getEntree().getX(), labyrinthe.getEntree().getY());
+        this.heros = new HerosSprite(h);
+        vue.add(this.heros);
     }
 
     protected void jeu(IVue vue) {

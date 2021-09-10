@@ -4,7 +4,6 @@ import java.util.Collection;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import labyrinthe.ILabyrinthe;
 import labyrinthe.ISalle;
 import vue2D.sprites.ISprite;
@@ -16,10 +15,10 @@ import vue2D.sprites.ISprite;
 
 public class Dessin extends Canvas {
     
-    private Collection<ISprite> sprites;
-    private ILabyrinthe labyrinthe;
-    private int unite = 15;
-    private GraphicsContext tampon;
+    public final Collection<ISprite> sprites;
+    private final ILabyrinthe labyrinthe;
+    public static final int unite = 15;
+    private final GraphicsContext tampon;
     private Image solImage, ground;
    
     /**
@@ -40,7 +39,7 @@ public class Dessin extends Canvas {
     /**
      * Méthode qui charge les images utilisées par le jeu.
      */
-    public void chargementImages() {
+    public final void chargementImages() {
     	solImage = new Image("file:icons/pyramide.jpg");
         ground = new Image("file:icons/ground.gif");
     }
@@ -48,14 +47,21 @@ public class Dessin extends Canvas {
     /**
      * Méthode qui dessine l'image de fond du Labyrinthe.
      */
-    public void dessinFond() {
+    public final void dessinFond() {
         tampon.drawImage(solImage, 0, 0, unite*labyrinthe.getLargeur(), unite*labyrinthe.getHauteur());
     }
     
+    /**
+     * Méthode qui dessine les salles du Labyrinthe.
+     */
     public void dessinSalles() {
-        for (ISalle s : labyrinthe) {
-            tampon.drawImage(ground, s.getX()*unite, s.getY()*unite, unite, unite);
-        }
+        labyrinthe.forEach(s -> { tampon.drawImage(ground, s.getX()*unite, s.getY()*unite, unite, unite); });
     }
     
+    /**
+     * Méthode qui dessine les sprites du Labyrinthe.
+     */
+    public void dessinSprites() {
+        sprites.forEach(sprite -> { sprite.dessiner(tampon); });
+    }
 }

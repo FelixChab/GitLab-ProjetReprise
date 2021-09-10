@@ -10,16 +10,30 @@ import personnages.IPersonnage;
  */
 public interface ILabyrinthe extends Collection<ISalle> {
 
-    // Crée le labyrinthe a partir d'un fichier 
+    /**
+     * Méthode qui créer le labyrinthe à partir des fichiers "labys".
+     * @param file le fichier de labyrinthe.
+     * @throws IOException une exception.
+     */
     public void creerLabyrinthe(String file) throws IOException; 
 
-    // Renvoie les salles accessibles pour le héros
+    /**
+     * Méthode qui renvoie une collection des salles accessibles au héros.
+     * @param heros le héros (joueur).
+     * @return une collection de salles.
+     */
     public Collection<ISalle> sallesAccessibles(IPersonnage heros); 
 
-    // Accesseur sur l'entrée 
+    /**
+     * Méthode qui renvoie l'entrée du labyrinthe.
+     * @return l'entrée.
+     */
     public ISalle getEntree(); 
 
-    // Accesseur sur la sortie
+    /**
+     * Méthode qui renvoie la sortie du labyrinthe.
+     * @return la sortie.
+     */
     public ISalle getSortie(); 
 
     // Un plus court chemin entre u et v

@@ -18,12 +18,10 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     
     /**
      * Constructeur de la classe HerosSprite qui hérite d'ASprite.
-     * @param x position sur l'axe des abscisses du sprite.
-     * @param y position sur l'axe des ordonnées du sprite.
      * @param perso le personnage dont on affiche le sprite.
      */
-    public HerosSprite(int x, int y, IPersonnage perso) {
-        super(x, y, perso);
+    public HerosSprite(IPersonnage perso) {
+        super(perso);
         this.hero = ((Heros)perso);
     }
 

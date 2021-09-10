@@ -9,13 +9,23 @@ import labyrinthe.ISalle;
 */
 public interface IPersonnage {
     
-    // Renvoie une salle parmi sallesAccesibles
+    /**
+     * Méthode qui permet au héros de choisir où aller.
+     * @param sallesAccessibles la collection des salles accessibles.
+     * @return la salle choisie.
+     */
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles);
 
-    // Renvoie sa position courante
+    /**
+     * Méthode qui renvoie la position courante du personnage.
+     * @return la position (X,Y) du personnage.
+     */
     public ISalle getPosition();
     
-    // Définit sa position courante
+    /**
+     * Méthode qui définit la position courante du personnage.
+     * @param s la salle où le personnage va se retrouver.
+     */
     public void setPosition(ISalle s);
     
 }

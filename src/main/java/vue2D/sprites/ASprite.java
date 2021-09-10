@@ -3,6 +3,7 @@ package vue2D.sprites;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import personnages.IPersonnage;
+import vue2D.javafx.Dessin;
 
 /**
  * Classe abstraite ASprite
@@ -16,19 +17,17 @@ public abstract class ASprite implements ISprite {
     
     /**
      * Constructeur de la classe abstraite ASprite.
-     * @param x coordonnée sur l'axe des abscisse du sprite.
-     * @param y coordonnée sur l'axe des ordonnées du sprite.
      * @param perso l'image du sprite du personnage.
      */
-    public ASprite(int x, int y, IPersonnage perso) {
-        this.spriteX = x;
-        this.spriteY = y;
+    public ASprite(IPersonnage perso) {
+        this.spriteX = perso.getPosition().getX();
+        this.spriteY = perso.getPosition().getY();
         this.spritePerso = perso;
     }
     
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(image, spriteX, spriteX);
+        g.drawImage(image, spriteX*Dessin.unite, spriteX*Dessin.unite, Dessin.unite, Dessin.unite);
     }
     
     @Override

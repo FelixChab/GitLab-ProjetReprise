@@ -18,29 +18,16 @@ public class Salle implements ISalle {
         this.salleY = y;
     }
     
-    /**
-     * Méthode "override" qui renvoie l'abcisse de la salle.
-     * @return salleX coordonnée abcisses de la salle.
-     */
     @Override
     public int getX() {
         return salleX;
     }
     
-    /**
-     * Méthode "override" qui renvoie l'ordonnée de la salle.
-     * @return salleY coordonnée ordonnées de la salle.
-     */
     @Override
     public int getY() {
         return salleY;
     }
     
-    /**
-     * Méthode qui renvoi vrai ou faux s'il y a une salle adjacente.
-     * @param autre l'autre salle adjacente à la salle "utilisée".
-     * @return true s'il y a une salle adjacente, false si le contraire.
-     */
     @Override
     public boolean estAdjacente(ISalle autre) {
         // Si l'autre salle est situé au-dessus, en-dessous, à gauche, à droite, de la salle actuelle.

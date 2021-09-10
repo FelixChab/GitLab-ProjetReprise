@@ -16,9 +16,12 @@ public class MainJavaFX extends Application {
     @Override
     public void start(Stage stage) {
         core = new Core();
-        core.initLabyrinthe(); // Initialisation du labyrinthe
-        Vue vue = new vue2D.javafx.Vue(core.labyrinthe); // Création de la vue
-        core.initSprites(vue); // Création des sprites dans la vue  
+        // Initialisation du labyrinthe
+        core.initLabyrinthe(); 
+        // Création de la vue
+        Vue vue = new vue2D.javafx.Vue(core.labyrinthe); 
+        // Création des sprites dans la vue  
+        core.initSprites(vue); 
         stage.setScene(vue.scene);
         stage.show();
         // Rafraîchissement de la vue

@@ -12,8 +12,13 @@ import labyrinthe.Salle;
  * @author INFO Professors team
  */
 public class Fichier {
+    
     Scanner sc = null;
     
+    /**
+     * Constructeur de la classe Fichier.
+     * @param nomFichier le nom du fichier à valider.
+     */
     public Fichier(String nomFichier){
         try{
 	    sc = new Scanner(new File(nomFichier));
@@ -37,9 +42,9 @@ public class Fichier {
      * @return true si le fichier est valide, false si l'inverse.
      */
     public boolean testValide(String nomFichier) {
-        boolean fichierValide = false;
+        boolean fichierValide;
         Scanner scNom = new Scanner(System.in);
-        System.out.println("Entrez nom du fichier à charger: " + " " + " (ex de nom de fichier: labys/level7.txt)");
+        System.out.println("Entrez nom du fichier à vérifier: " + " " + " (ex de nom de fichier: labys/level7.txt)");
         nomFichier = scNom.nextLine();
         System.out.println("Le fichier nommé " + nomFichier + " est en cours de validation...");
         File f = new File(nomFichier);
