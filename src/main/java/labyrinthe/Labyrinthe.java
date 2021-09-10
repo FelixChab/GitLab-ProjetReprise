@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import outils.Fichier;
 import personnages.IPersonnage;
-import labyrinthe.ISalle;
 
 /**
  * Classe Labyrinthe
@@ -36,7 +35,8 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
         int boucleX = f.lireNombre();
         int boucleY = f.lireNombre();
         while (boucleX >= 0 && boucleY >= 0 && boucleX <= largeur && boucleY <= hauteur) {
-            this.add(new Salle(boucleX, boucleY)); // On ajoute chaque nouvelle salle à l'ArrayList<ISalle>
+            // On ajoute chaque nouvelle salle à l'ArrayList<ISalle>
+            this.add(new Salle(boucleX, boucleY)); 
             boucleX = f.lireNombre();
             boucleY = f.lireNombre();
         }
