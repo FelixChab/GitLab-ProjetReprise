@@ -12,7 +12,7 @@ public class Heros extends APersonnage {
     public ISalle salleChoisie;
     
     public Heros(int x, int y) {
-        super(posX, posY);
+        super(x, y);
     }
     
     /**

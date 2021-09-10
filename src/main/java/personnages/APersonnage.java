@@ -10,12 +10,12 @@ import labyrinthe.Salle;
  */
 public abstract class APersonnage implements IPersonnage {
     
-    public static int posX, posY;
+    public int posX, posY;
     public ISalle position;
     
     public APersonnage(int x, int y) {
-        APersonnage.posX = x;
-        APersonnage.posY = y;
+        this.posX = x;
+        this.posY = y;
     }
     
     /**
@@ -47,8 +47,8 @@ public abstract class APersonnage implements IPersonnage {
     
     @Override
     public void setPosition(ISalle s) {
-        APersonnage.posX = s.getX();
-        APersonnage.posY = s.getY();
+        this.posX = s.getX();
+        this.posY = s.getY();
     }
     
 }

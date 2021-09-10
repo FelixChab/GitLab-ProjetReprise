@@ -25,8 +25,11 @@ public class Core {
 
     protected void initSprites(IVue vue) {
         // Création du heros 
+        System.out.println("Entree X: " + labyrinthe.getEntree().getX() + " | " + "Entree Y: " + labyrinthe.getEntree().getY());
         IPersonnage h = new personnages.Heros(labyrinthe.getEntree().getX(), labyrinthe.getEntree().getY());
         this.heros = new HerosSprite(h);
+        // problème coordonnées héros
+        // System.out.println("heroX: " + heros.getPosition().getX() + " | " + "heroY: " + heros.getPosition().getY());
         vue.add(this.heros);
     }
 

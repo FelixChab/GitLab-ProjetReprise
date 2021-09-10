@@ -27,7 +27,7 @@ public abstract class ASprite implements ISprite {
     
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(image, spriteX*Dessin.unite, spriteX*Dessin.unite, Dessin.unite, Dessin.unite);
+        g.drawImage(image, spriteX*Dessin.unite, spriteY*Dessin.unite, Dessin.unite, Dessin.unite);
     }
     
     @Override
