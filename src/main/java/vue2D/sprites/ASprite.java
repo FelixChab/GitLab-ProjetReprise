@@ -2,6 +2,7 @@ package vue2D.sprites;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import labyrinthe.ISalle;
 import personnages.IPersonnage;
 import vue2D.javafx.Dessin;
 
@@ -34,6 +35,18 @@ public abstract class ASprite implements ISprite {
     public void setCoordonnees(int xpix, int ypix) {
         this.spriteX = xpix;
         this.spriteY = ypix;
+    }
+    
+    @Override
+    public ISalle getPosition() {
+        return spritePerso.getPosition();
+    }
+    
+    @Override
+    public void setPosition(ISalle s) {
+        spritePerso.setPosition(s);
+        spriteX = s.getX();
+        spriteY = s.getY();
     }
     
 }

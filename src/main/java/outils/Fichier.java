@@ -44,9 +44,9 @@ public class Fichier {
     public boolean testValide(String nomFichier) {
         boolean fichierValide;
         Scanner scNom = new Scanner(System.in);
-        System.out.println("Entrez nom du fichier à vérifier: " + " " + " (ex de nom de fichier: labys/level7.txt)");
+        System.out.println("Entrez le nom du fichier à lire. " + " " + " " + "(ex: labys/level7.txt)");
         nomFichier = scNom.nextLine();
-        System.out.println("Le fichier nommé " + nomFichier + " est en cours de validation...");
+        System.out.println("Le fichier nommé " + "'" + nomFichier + "'" + " est en cours de validation...");
         File f = new File(nomFichier);
         testCoordonneesSallesFichier(f);
         testPasDeDoublonFichier(f);

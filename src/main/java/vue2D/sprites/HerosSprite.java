@@ -30,16 +30,6 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
         return spritePerso.faitSonChoix(sallesAccessibles);
     }
     
-    @Override
-    public ISalle getPosition() {
-        return spritePerso.getPosition();
-    }
-    
-    @Override
-    public void setPosition(ISalle s) {
-        spritePerso.setPosition(s);
-    }
-    
     /**
      * Méthode qui permet de déplacer le personnage en fonction des touches du clavier.
      * @param key la touche appuyée.
@@ -47,33 +37,28 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent key) {
         // On récupère les coordonnées du personnage.
-        /// hero ou spritePerso (?)
-        int persoX = spritePerso.getPosition().getX();
-        int persoY = spritePerso.getPosition().getY(); 
+        int persoX = hero.getPosition().getX();
+        int persoY = hero.getPosition().getY();
         switch (key.getCode()) {
             // Déplacement Haut
             case UP:
                 persoY--;
-                // ...
                 break;
             // Déplacement bas
             case DOWN:
                 persoY++;
-                // ...
                 break;
             // Déplacement gauche
             case LEFT:
                 persoX--;
-                // ...
                 break;
             // Déplacement droite
             case RIGHT:
                 persoX++;
-                // ...
                 break;
         }
-        ISalle salleChoix = new Salle(persoX, persoY);
-        hero.salleChoisie = salleChoix;
+        ISalle sallePerso = new Salle(persoX, persoY);
+        hero.salleChoisie = sallePerso;
     }
     
 }

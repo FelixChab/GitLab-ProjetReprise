@@ -44,47 +44,19 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
         }
     }
     
-    ///
-    /// A CORRIGER
-    ///
     @Override
     public Collection<ISalle> sallesAccessibles(IPersonnage bob) {
+        ArrayList<ISalle> sallesDispo = new ArrayList<>();
         int x = bob.getPosition().getX();
         int y = bob.getPosition().getY();
-        ISalle salle = new Salle(x, y+1); // test
-        if (this.contains(salle) && salle.estAdjacente(new Salle(x-1, y))) {
-            this.add(salle);
+        ISalle sallePerso = new Salle(x, y);
+        // On Parcourt les salles du Labyrinthe
+        for (ISalle salles : this) {
+            if (salles.estAdjacente(sallePerso)) {
+                sallesDispo.add(salles);
+            }
         }
-        return this;
-    }
-    
-    ///
-    /// ANCIENNE METHODE
-    ///
-    // Problème avec sallesAccessibles() et estsAdjacente() !!
-    public Collection<ISalle> sallesAccessiblesOld(IPersonnage bob) {
-        ArrayList<ISalle> salles = new ArrayList<>();
-        // On vérifie que la salle du haut est accessible.
-        ISalle salleHaut = new Salle(bob.getPosition().getX(), bob.getPosition().getY()-1);
-        if (bob.getPosition().estAdjacente(salleHaut) && this.contains(salleHaut)) {
-            salles.add(salleHaut);
-        }
-        // On vérifie que la salle du bas est accessible.
-        ISalle salleBas = new Salle(bob.getPosition().getX(), bob.getPosition().getY()+1);
-        if (bob.getPosition().estAdjacente(salleBas) && this.contains(salleBas)) {
-            salles.add(salleBas);
-        }
-        // On vérifie que la salle de gauche est accessible.
-        ISalle salleGauche = new Salle(bob.getPosition().getX()-1, bob.getPosition().getY());
-        if (bob.getPosition().estAdjacente(salleGauche) && this.contains(salleGauche)) {
-            salles.add(salleGauche);
-        }
-        // On vérifie que la salle de droite est accessible.
-        ISalle salleDroite = new Salle(bob.getPosition().getX()+1, bob.getPosition().getY());
-        if (bob.getPosition().estAdjacente(salleDroite) && this.contains(salleDroite)) {
-            salles.add(salleDroite);
-        }
-        return salles;
+        return sallesDispo;
     }
 
     @Override
