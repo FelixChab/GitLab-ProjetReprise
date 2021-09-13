@@ -44,7 +44,7 @@ public class Vue extends AVue implements IVue {
         super.add(sprite);
         // Si le sprite est contrôlé par le clavier.
         if (sprite instanceof EventHandler) {
-            System.out.println("registering keylistener");
+            System.out.println("Registering keylistener...");
             // Association de l'écouteur sur le clavier avec le composant graphique principal.
             this.scene.setOnKeyPressed((EventHandler)sprite);
         }

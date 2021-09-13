@@ -11,8 +11,13 @@ import vue2D.javafx.Vue;
  * @author INFO Professors team
  */
 public class MainJavaFX extends Application {
+    
     private Core core;
-
+    
+    /**
+     * Méthode d'initialisation du jeu.
+     * @param stage le niveau, l'étape en cours.
+     */
     @Override
     public void start(Stage stage) {
         core = new Core();
@@ -42,7 +47,11 @@ public class MainJavaFX extends Application {
         th.setDaemon(true);
         th.start();
     }
-
+    
+    /**
+     * Méthode de lancement de l'application.
+     * @param args ???
+     */
     public static void main(String[] args) {
         launch();
     }

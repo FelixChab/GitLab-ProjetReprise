@@ -6,10 +6,16 @@ package labyrinthe;
  */
 public interface ISalle {
     
-    // Méthode qui renvoie la coordonnée X (abscisse) de la salle.
+    /**
+     * Méthode qui renvoie la coordonnée Y (ordonnée) de la salle.
+     * @return X la coordonnée X de la salle en nombre entier.
+     */ 
     public int getX(); 
     
-    // Méthode qui renvoie la coordonnée Y (ordonnée) de la salle.
+    /**
+     * Méthode qui renvoie la coordonnée Y (ordonnée) de la salle.
+     * @return Y la coordonnée Y de la salle en nombre entier.
+     */ 
     public int getY(); 
     
     /**

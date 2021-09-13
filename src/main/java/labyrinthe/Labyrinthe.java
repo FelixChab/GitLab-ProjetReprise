@@ -32,6 +32,8 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
         // Création du Labyrinthe
         entree = new Salle(f.lireNombre(), f.lireNombre());
         sortie = new Salle(f.lireNombre(), f.lireNombre());
+        this.add(entree);
+        this.add(sortie);
         int boucleX = f.lireNombre();
         int boucleY = f.lireNombre();
         while (boucleX >= 0 && boucleY >= 0 && boucleX <= largeur && boucleY <= hauteur) {

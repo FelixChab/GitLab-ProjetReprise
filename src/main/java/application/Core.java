@@ -23,16 +23,25 @@ public class Core {
         chargementLaby("labys/level3.txt");
     }
 
+    /**
+     * Méthode qui initialise les différents sprites.
+     * @param vue la vue actuelle du labyrinthe avec ses différents sprites, etc...
+     */
     protected void initSprites(IVue vue) {
-        // Création du heros 
-        System.out.println("Entree X: " + labyrinthe.getEntree().getX() + " | " + "Entree Y: " + labyrinthe.getEntree().getY());
+        /// Vérification coordonnées Entrée
+        /// System.out.println("Entree X: " + labyrinthe.getEntree().getX() + " | " + "Entree Y: " + labyrinthe.getEntree().getY());
+        // Création du Héros 
         IPersonnage h = new personnages.Heros(labyrinthe.getEntree().getX(), labyrinthe.getEntree().getY());
         this.heros = new HerosSprite(h);
-        // problème coordonnées héros
-        // System.out.println("heroX: " + heros.getPosition().getX() + " | " + "heroY: " + heros.getPosition().getY());
+        /// Vérification Coordoonées Héros
+        /// System.out.println("heroX: " + heros.getPosition().getX() + " | " + "heroY: " + heros.getPosition().getY());
         vue.add(this.heros);
     }
-
+    
+    /**
+     * Méthode de la boucle principale de jeu (conditions de victoire, etc...)
+     * @param vue la vue actuelle du labyrinthe avec ses différents sprites, etc...
+     */
     protected void jeu(IVue vue) {
         // Boucle principale
         ISalle destination = null;
@@ -66,7 +75,11 @@ public class Core {
         }
         System.out.println("Gagné!");
     }
-
+    
+    /**
+     * Méthode de chargement du labyrinthe via l'utilisation de fichier.
+     * @param fic le fichier utilisé.
+     */
     private void chargementLaby(String fic) {
         // try - catch en cas de fichier inexistant (?)
         try {
@@ -82,7 +95,11 @@ public class Core {
             }
         }
     }
-
+    
+    /**
+     * Méthode de temporisation.
+     * @param nb nombre de millisecondes par pause.
+     */
     protected void temporisation(int nb) {
         try {
             Thread.sleep(nb); // Pause de nb millisecondes
