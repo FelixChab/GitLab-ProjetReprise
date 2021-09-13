@@ -2,11 +2,13 @@ package vue2D.sprites;
 
 import java.util.Collection;
 import javafx.event.EventHandler;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import labyrinthe.ISalle;
 import labyrinthe.Salle;
 import personnages.Heros;
 import personnages.IPersonnage;
+import vue2D.javafx.Dessin;
 
 /**
  * Classe HerosSprite
@@ -28,6 +30,15 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     @Override
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
         return spritePerso.faitSonChoix(sallesAccessibles);
+    }
+    
+    /**
+     * Méthode pour dessiner le Héro.
+     * @param g objet JavaFX
+     */
+    @Override
+    public void dessiner(GraphicsContext g) {
+        g.drawImage(imageHero, spriteX*Dessin.unite, spriteY*Dessin.unite, Dessin.unite, Dessin.unite);
     }
     
     /**

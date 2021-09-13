@@ -4,7 +4,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import labyrinthe.ISalle;
 import personnages.IPersonnage;
-import vue2D.javafx.Dessin;
 
 /**
  * Classe abstraite ASprite
@@ -14,7 +13,8 @@ public abstract class ASprite implements ISprite {
     
     public IPersonnage spritePerso;
     public int spriteX, spriteY;
-    public Image image = new Image("file:icons/link/LinkRunShieldL1.gif");
+    public Image imageHero = new Image("file:icons/link/LinkRunShieldL1.gif");
+    public Image imageMonstre = new Image("file:icons/monstre0.gif");
     
     /**
      * Constructeur de la classe abstraite ASprite.
@@ -28,7 +28,7 @@ public abstract class ASprite implements ISprite {
     
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(image, spriteX*Dessin.unite, spriteY*Dessin.unite, Dessin.unite, Dessin.unite);
+        // Utilisée dans HeroSprite & MonstreSprite
     }
     
     @Override

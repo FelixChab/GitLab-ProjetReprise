@@ -57,7 +57,7 @@ public class Salle implements ISalle {
     
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 10;
         return hash;
     }
 

@@ -5,15 +5,18 @@ import java.util.Collection;
 import labyrinthe.ILabyrinthe;
 import labyrinthe.ISalle;
 import personnages.IPersonnage;
+import personnages.Monstre;
 import vue2D.IVue;
 import vue2D.sprites.HerosSprite;
 import vue2D.sprites.ISprite;
+import vue2D.sprites.MonstreSprite;
 
 /**
  * Classe Core
  * @author INFO Professors team
  */
 public class Core {
+    
     ISprite heros;
     ILabyrinthe labyrinthe;
 
@@ -28,14 +31,14 @@ public class Core {
      * @param vue la vue actuelle du labyrinthe avec ses différents sprites, etc...
      */
     protected void initSprites(IVue vue) {
-        /// Vérification coordonnées Entrée
-        /// System.out.println("Entree X: " + labyrinthe.getEntree().getX() + " | " + "Entree Y: " + labyrinthe.getEntree().getY());
         // Création du Héros 
         IPersonnage h = new personnages.Heros(labyrinthe.getEntree().getX(), labyrinthe.getEntree().getY());
         this.heros = new HerosSprite(h);
-        /// Vérification Coordoonées Héros
-        /// System.out.println("heroX: " + heros.getPosition().getX() + " | " + "heroY: " + heros.getPosition().getY());
         vue.add(this.heros);
+        // Création des Monstres
+        for (int i = 0; i < 10; i++) {
+            vue.add(new MonstreSprite(new Monstre(labyrinthe.getSortie().getX(), labyrinthe.getSortie().getY())));
+        }
     }
     
     /**
@@ -58,7 +61,7 @@ public class Core {
             ISprite monstre = null;
             for (ISprite p : vue) {
                 if (p != heros) {
-                    if (p.getPosition() == heros.getPosition()) {
+                    if (p.getPosition().equals(heros.getPosition())) {
                         System.out.println("Collision !!");
                         collision = true;
                         monstre = p;
