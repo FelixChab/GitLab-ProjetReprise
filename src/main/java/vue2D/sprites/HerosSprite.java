@@ -17,6 +17,7 @@ import vue2D.javafx.Dessin;
 public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     
     private final Heros hero;
+    public boolean enMouvement = false;
     
     /**
      * Constructeur de la classe HerosSprite qui hérite d'ASprite.
@@ -47,6 +48,9 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void handle(KeyEvent key) {
+        if (enMouvement) {
+            return; // On quitte la condition
+        }
         // On récupère les coordonnées du personnage.
         int persoX = hero.getPosition().getX();
         int persoY = hero.getPosition().getY();
@@ -54,18 +58,22 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
             // Déplacement Haut
             case UP:
                 persoY--;
+                enMouvement = true;
                 break;
             // Déplacement bas
             case DOWN:
                 persoY++;
+                enMouvement = true;
                 break;
             // Déplacement gauche
             case LEFT:
                 persoX--;
+                enMouvement = true;
                 break;
             // Déplacement droite
             case RIGHT:
                 persoX++;
+                enMouvement = true;
                 break;
         }
         ISalle sallePerso = new Salle(persoX, persoY);
