@@ -47,32 +47,33 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent key) {
         // On récupère les coordonnées du personnage.
+        /// hero ou spritePerso (?)
         int persoX = spritePerso.getPosition().getX();
-        int persoY = spritePerso.getPosition().getY();
-        ISalle salleChoix = new Salle(persoX, persoY);
+        int persoY = spritePerso.getPosition().getY(); 
         switch (key.getCode()) {
             // Déplacement Haut
             case UP:
                 persoY--;
-                spritePerso.setPosition(salleChoix);
+                // ...
                 break;
             // Déplacement bas
             case DOWN:
                 persoY++;
-                spritePerso.setPosition(salleChoix);
+                // ...
                 break;
             // Déplacement gauche
             case LEFT:
                 persoX--;
-                spritePerso.setPosition(salleChoix);
+                // ...
                 break;
             // Déplacement droite
             case RIGHT:
                 persoX++;
-                spritePerso.setPosition(salleChoix);
+                // ...
                 break;
         }
-        hero.salleChoisie = new Salle(persoX, persoY);
+        ISalle salleChoix = new Salle(persoX, persoY);
+        hero.salleChoisie = salleChoix;
     }
     
 }

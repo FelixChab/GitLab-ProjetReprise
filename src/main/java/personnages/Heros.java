@@ -15,11 +15,6 @@ public class Heros extends APersonnage {
         super(x, y);
     }
     
-    /**
-     * Méthode "override" qui permet au héros de choisir où aller.
-     * @param sallesAccessibles la collection des salles qui lui sont accessibles.
-     * @return salleChoisie, le choix du héros parmis les salles disponibles.
-     */
     @Override
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
         if (sallesAccessibles.contains(salleChoisie)) {

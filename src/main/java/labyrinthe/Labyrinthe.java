@@ -43,9 +43,26 @@ public class Labyrinthe extends ArrayList<ISalle> implements ILabyrinthe {
             boucleY = f.lireNombre();
         }
     }
-
+    
+    ///
+    /// A CORRIGER
+    ///
     @Override
     public Collection<ISalle> sallesAccessibles(IPersonnage bob) {
+        int x = bob.getPosition().getX();
+        int y = bob.getPosition().getY();
+        ISalle salle = new Salle(x, y+1); // test
+        if (this.contains(salle) && salle.estAdjacente(new Salle(x-1, y))) {
+            this.add(salle);
+        }
+        return this;
+    }
+    
+    ///
+    /// ANCIENNE METHODE
+    ///
+    // Problème avec sallesAccessibles() et estsAdjacente() !!
+    public Collection<ISalle> sallesAccessiblesOld(IPersonnage bob) {
         ArrayList<ISalle> salles = new ArrayList<>();
         // On vérifie que la salle du haut est accessible.
         ISalle salleHaut = new Salle(bob.getPosition().getX(), bob.getPosition().getY()-1);

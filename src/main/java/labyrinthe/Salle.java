@@ -28,11 +28,14 @@ public class Salle implements ISalle {
         return salleY;
     }
     
+    ///
+    /// A CORRIGER ?
+    ///
     @Override
     public boolean estAdjacente(ISalle autre) {
         // Si l'autre salle est situé au-dessus, en-dessous, à gauche, à droite, de la salle actuelle.
-        if (autre.getX() <= getX()+1 || autre.getX() >= getX()-1 
-         || autre.getY() <= getY()+1 || autre.getY() >= getY()-1) {
+        if (autre.getX() == getX()+1 || autre.getX() == getX()-1 
+         || autre.getY() == getY()+1 || autre.getY() == getY()-1) {
             // On retire les diagonales qui ne sont pas considérées comme adjacentes.
             if (autre.getX() == getX()+1 && autre.getY() == getY()-1) {
                 return false; // Diagonale haut-droite
