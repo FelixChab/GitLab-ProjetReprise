@@ -72,4 +72,10 @@ public class Dessin extends Canvas {
         tampon.drawImage(exit, labyrinthe.getSortie().getX()*UNITE, labyrinthe.getSortie().getY()*UNITE, UNITE, UNITE);
     }
     
+    /**
+     * Méthode pour l'éclairage autour du Héros.
+     */
+    public void dessinEclairage() {
+        // pas implémenter 
+    }
 }

@@ -34,6 +34,12 @@ public abstract class APersonnage implements IPersonnage {
         return posY;
     }
     
+    /**
+     * Méthode ré-utilisée par les différentes classes de personnages pour 
+     * choisir parmis une collection des salles accessibles.
+     * @param sallesAccessibles la collection de salles disponibles.
+     * @return le choix de salle du personnage.
+     */
     @Override
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
         return null;
