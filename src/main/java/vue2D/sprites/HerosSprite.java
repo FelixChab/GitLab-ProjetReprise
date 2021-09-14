@@ -17,7 +17,10 @@ import vue2D.javafx.Dessin;
 public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     
     private final Heros hero;
+    // Boolean pour mouvement plus fluide.
     public boolean enMouvement = false;
+    // Booleans pour direction de déplacement.
+    public boolean haut, bas, gauche, droite = false;
     
     /**
      * Constructeur de la classe HerosSprite qui hérite d'ASprite.
@@ -39,7 +42,19 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(imageHero, spriteX*Dessin.unite, spriteY*Dessin.unite, Dessin.unite, Dessin.unite);
+        g.drawImage(imageHeroD, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        if (haut == true) {
+            g.drawImage(imageHeroU, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        }
+        if (bas == true) {
+            g.drawImage(imageHeroD, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        }
+        if (gauche == true) {
+            g.drawImage(imageHeroL, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        }
+        if (droite == true) {
+            g.drawImage(imageHeroR, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        }
     }
     
     /**
@@ -48,32 +63,43 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void handle(KeyEvent key) {
+        /*
         if (enMouvement) {
-            return; // On quitte la condition
+            return; // On quitte la condition.
         }
+         */
         // On récupère les coordonnées du personnage.
         int persoX = hero.getPosition().getX();
         int persoY = hero.getPosition().getY();
+        // On réinitialise les directions pour l'animation.
+        haut = false;
+        bas = false;
+        droite = false;
+        gauche = false;
         switch (key.getCode()) {
             // Déplacement Haut
             case UP:
                 persoY--;
                 enMouvement = true;
+                haut = true;
                 break;
             // Déplacement bas
             case DOWN:
                 persoY++;
                 enMouvement = true;
+                bas = true;
                 break;
             // Déplacement gauche
             case LEFT:
                 persoX--;
                 enMouvement = true;
+                gauche = true;
                 break;
             // Déplacement droite
             case RIGHT:
                 persoX++;
                 enMouvement = true;
+                droite = true;
                 break;
         }
         ISalle sallePerso = new Salle(persoX, persoY);

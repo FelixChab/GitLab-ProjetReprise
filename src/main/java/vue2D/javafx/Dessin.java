@@ -16,7 +16,7 @@ public class Dessin extends Canvas {
     
     public final Collection<ISprite> sprites;
     private final ILabyrinthe labyrinthe;
-    public static final int unite = 15;
+    public static final int UNITE = 15;
     private final GraphicsContext tampon;
     private Image solImage, ground;
    
@@ -28,8 +28,8 @@ public class Dessin extends Canvas {
     public Dessin(ILabyrinthe labyrinthe, Collection<ISprite> sprites) {
         this.sprites = sprites;
         this.labyrinthe = labyrinthe;
-        setWidth(labyrinthe.getLargeur()*unite);
-        setHeight(labyrinthe.getHauteur()*unite);
+        setWidth(labyrinthe.getLargeur()*UNITE);
+        setHeight(labyrinthe.getHauteur()*UNITE);
         tampon = this.getGraphicsContext2D();
         chargementImages();
         dessinFond(); 
@@ -47,14 +47,14 @@ public class Dessin extends Canvas {
      * Méthode qui dessine l'image de fond du Labyrinthe.
      */
     public final void dessinFond() {
-        tampon.drawImage(solImage, 0, 0, unite*labyrinthe.getLargeur(), unite*labyrinthe.getHauteur());
+        tampon.drawImage(solImage, 0, 0, UNITE*labyrinthe.getLargeur(), UNITE*labyrinthe.getHauteur());
     }
     
     /**
      * Méthode qui dessine les salles du Labyrinthe.
      */
     public void dessinSalles() {
-        labyrinthe.forEach(s -> { tampon.drawImage(ground, s.getX()*unite, s.getY()*unite, unite, unite); });
+        labyrinthe.forEach(s -> { tampon.drawImage(ground, s.getX()*UNITE, s.getY()*UNITE, UNITE, UNITE); });
     }
     
     /**
@@ -63,4 +63,5 @@ public class Dessin extends Canvas {
     public void dessinSprites() {
         sprites.forEach(sprite -> { sprite.dessiner(tampon); });
     }
+    
 }

@@ -13,7 +13,12 @@ public abstract class ASprite implements ISprite {
     
     public IPersonnage spritePerso;
     public int spriteX, spriteY;
-    public Image imageHero = new Image("file:icons/link/LinkRunShieldL1.gif");
+    // Sprites du héros (pour chaque direction)
+    public Image imageHeroL = new Image("file:icons/link/LinkRunShieldL1.gif");
+    public Image imageHeroR = new Image("file:icons/link/LinkRunR1.gif");
+    public Image imageHeroU = new Image("file:icons/link/LinkRunU1.gif");
+    public Image imageHeroD = new Image("file:icons/link/LinkRunShieldD1.gif");
+    // Sprite des monstres
     public Image imageMonstre = new Image("file:icons/monstre0.gif");
     
     /**

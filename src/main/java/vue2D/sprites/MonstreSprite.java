@@ -13,7 +13,7 @@ import vue2D.javafx.Dessin;
  */
 public class MonstreSprite extends ASprite {
     
-    private final Monstre monstre;
+    public final Monstre monstre;
     
     /**
      * Constructeur de la classe HerosSprite qui hérite d'ASprite.
@@ -35,7 +35,7 @@ public class MonstreSprite extends ASprite {
      */
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(imageMonstre, spriteX*Dessin.unite, spriteY*Dessin.unite, Dessin.unite, Dessin.unite); 
+        g.drawImage(imageMonstre, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE); 
     }
     
 }

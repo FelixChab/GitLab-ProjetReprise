@@ -36,7 +36,7 @@ public class Core {
         this.heros = new HerosSprite(h);
         vue.add(this.heros);
         // Création des Monstres
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             vue.add(new MonstreSprite(new Monstre(labyrinthe.getSortie().getX(), labyrinthe.getSortie().getY())));
         }
     }
