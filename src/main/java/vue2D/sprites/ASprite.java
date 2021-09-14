@@ -1,9 +1,11 @@
 package vue2D.sprites;
 
+import java.util.Collection;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import labyrinthe.ISalle;
 import personnages.IPersonnage;
+import vue2D.javafx.Dessin;
 
 /**
  * Classe abstraite ASprite
@@ -11,10 +13,10 @@ import personnages.IPersonnage;
  */
 public abstract class ASprite implements ISprite {
     
-    public IPersonnage spritePerso;
-    public int spriteX, spriteY;
-    public Image imageHero = new Image("file:icons/link/LinkRunShieldL1.gif");
-    public Image imageMonstre = new Image("file:icons/monstre0.gif");
+    public IPersonnage perso;
+    public float spriteX, spriteY;
+    // Sprites des personnages
+    public Image imagePerso;
     
     /**
      * Constructeur de la classe abstraite ASprite.
@@ -23,12 +25,15 @@ public abstract class ASprite implements ISprite {
     public ASprite(IPersonnage perso) {
         this.spriteX = perso.getPosition().getX();
         this.spriteY = perso.getPosition().getY();
-        this.spritePerso = perso;
+        this.perso = perso;
     }
     
     @Override
     public void dessiner(GraphicsContext g) {
         // Utilisée dans HeroSprite & MonstreSprite
+        spriteX = lerp(spriteX, perso.getPosition().getX());
+        spriteY = lerp(spriteY, perso.getPosition().getY());
+        g.drawImage(imagePerso, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
     }
     
     @Override
@@ -39,14 +44,22 @@ public abstract class ASprite implements ISprite {
     
     @Override
     public ISalle getPosition() {
-        return spritePerso.getPosition();
+        return perso.getPosition();
     }
     
     @Override
     public void setPosition(ISalle s) {
-        spritePerso.setPosition(s);
-        spriteX = s.getX();
-        spriteY = s.getY();
+        perso.setPosition(s);
+    }
+    
+    @Override
+    public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
+        return perso.faitSonChoix(sallesAccessibles);
+    }
+    
+    private float lerp(float posSprite, float posDest) {
+        float perCent = 0.1f;
+        return posSprite + perCent * (posDest - posSprite);
     }
     
 }

@@ -44,7 +44,7 @@ public class Fichier {
     public boolean testValide(String nomFichier) {
         boolean fichierValide;
         Scanner scNom = new Scanner(System.in);
-        System.out.println("Entrez le nom du fichier à lire. " + " " + " " + "(ex: labys/level7.txt)");
+        System.out.println("Entrez le nom du fichier à lire. " + " " + " " + "(ex: labys/level3.txt)");
         nomFichier = scNom.nextLine();
         System.out.println("Le fichier nommé " + "'" + nomFichier + "'" + " est en cours de validation...");
         File f = new File(nomFichier);

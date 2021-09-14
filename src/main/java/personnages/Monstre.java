@@ -21,7 +21,7 @@ public class Monstre extends APersonnage {
     @Override
     public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
         Random salleAléatoire = new Random();
-        List<ISalle> list = sallesAccessibles.stream().collect(Collectors.toList()) ;
+        List<ISalle> list = sallesAccessibles.stream().collect(Collectors.toList());
         return list.get(salleAléatoire.nextInt(list.size()));
     }
     

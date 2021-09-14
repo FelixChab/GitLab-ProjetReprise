@@ -35,6 +35,8 @@ public class Vue extends AVue implements IVue {
      	// Recopie du fond (image): murs + salles
         dessin.dessinFond();
         dessin.dessinSalles();
+        // Affichage de la sortie
+        dessin.dessinSortie();
         // Chargement des sprites
         dessin.dessinSprites();
     }	

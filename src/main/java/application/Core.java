@@ -36,7 +36,7 @@ public class Core {
         this.heros = new HerosSprite(h);
         vue.add(this.heros);
         // Création des Monstres
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             vue.add(new MonstreSprite(new Monstre(labyrinthe.getSortie().getX(), labyrinthe.getSortie().getY())));
         }
     }
@@ -72,7 +72,7 @@ public class Core {
                 vue.remove(monstre);
                 vue.remove(heros);
                 System.out.println("Perdu !");
-                System.out.println("Plus que " + vue.size() + " personnages ...");
+                System.out.println("Plus que " + vue.size() + " personnages...");
             }
             temporisation(50);
         }
