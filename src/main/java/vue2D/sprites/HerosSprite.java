@@ -63,11 +63,7 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void handle(KeyEvent key) {
-        /*
-        if (enMouvement) {
-            return; // On quitte la condition.
-        }
-         */
+        /// IMPLEMENTATION enMouvement (Ex 19) à faire
         // On récupère les coordonnées du personnage.
         int persoX = hero.getPosition().getX();
         int persoY = hero.getPosition().getY();

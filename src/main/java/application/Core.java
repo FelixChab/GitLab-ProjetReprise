@@ -72,7 +72,7 @@ public class Core {
                 vue.remove(monstre);
                 vue.remove(heros);
                 System.out.println("Perdu !");
-                System.out.println("Plus que " + vue.size() + " personnages ...");
+                System.out.println("Plus que " + vue.size() + " personnages...");
             }
             temporisation(50);
         }
