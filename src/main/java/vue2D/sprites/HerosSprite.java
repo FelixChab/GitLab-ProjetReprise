@@ -3,6 +3,7 @@ package vue2D.sprites;
 import java.util.Collection;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import labyrinthe.ISalle;
 import labyrinthe.Salle;
@@ -17,10 +18,8 @@ import vue2D.javafx.Dessin;
 public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     
     private final Heros hero;
-    // Boolean pour mouvement plus fluide.
-    public boolean enMouvement = false;
     // Booleans pour direction de déplacement.
-    public boolean haut, bas, gauche, droite = false;
+    public static boolean haut, bas, gauche, droite = false;
     
     /**
      * Constructeur de la classe HerosSprite qui hérite d'ASprite.
@@ -29,11 +28,7 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
     public HerosSprite(IPersonnage perso) {
         super(perso);
         this.hero = ((Heros)perso);
-    }
-
-    @Override
-    public ISalle faitSonChoix(Collection<ISalle> sallesAccessibles) {
-        return spritePerso.faitSonChoix(sallesAccessibles);
+        this.imagePerso = new Image("file:icons/link/LinkRunShieldD2.gif");
     }
     
     /**
@@ -42,18 +37,19 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void dessiner(GraphicsContext g) {
-        g.drawImage(imageHeroD, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+        super.dessiner(g);
+        // On charge le sprite correspondant à chaque directions.
         if (haut == true) {
-            g.drawImage(imageHeroU, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+            imagePerso = new Image("file:icons/link/LinkRunU1.gif");
         }
         if (bas == true) {
-            g.drawImage(imageHeroD, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+            imagePerso = new Image("file:icons/link/LinkRunShieldD1.gif");
         }
         if (gauche == true) {
-            g.drawImage(imageHeroL, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+            imagePerso = new Image("file:icons/link/LinkRunShieldL1.gif");
         }
         if (droite == true) {
-            g.drawImage(imageHeroR, spriteX*Dessin.UNITE, spriteY*Dessin.UNITE, Dessin.UNITE, Dessin.UNITE);
+            imagePerso = new Image("file:icons/link/LinkRunR1.gif");
         }
     }
     
@@ -63,7 +59,6 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
      */
     @Override
     public void handle(KeyEvent key) {
-        /// IMPLEMENTATION enMouvement (Ex 19) à faire
         // On récupère les coordonnées du personnage.
         int persoX = hero.getPosition().getX();
         int persoY = hero.getPosition().getY();
@@ -76,25 +71,21 @@ public class HerosSprite extends ASprite implements EventHandler<KeyEvent> {
             // Déplacement Haut
             case UP:
                 persoY--;
-                enMouvement = true;
                 haut = true;
                 break;
             // Déplacement bas
             case DOWN:
                 persoY++;
-                enMouvement = true;
                 bas = true;
                 break;
             // Déplacement gauche
             case LEFT:
                 persoX--;
-                enMouvement = true;
                 gauche = true;
                 break;
             // Déplacement droite
             case RIGHT:
                 persoX++;
-                enMouvement = true;
                 droite = true;
                 break;
         }

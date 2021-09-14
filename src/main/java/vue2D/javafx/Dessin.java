@@ -18,7 +18,7 @@ public class Dessin extends Canvas {
     private final ILabyrinthe labyrinthe;
     public static final int UNITE = 15;
     private final GraphicsContext tampon;
-    private Image solImage, ground;
+    private Image solImage, ground, exit;
    
     /**
      * Constructeur de la classe
@@ -41,6 +41,7 @@ public class Dessin extends Canvas {
     public final void chargementImages() {
     	solImage = new Image("file:icons/pyramide.jpg");
         ground = new Image("file:icons/ground.gif");
+        exit = new Image("file:icons/sortie.gif");
     }
     
     /**
@@ -62,6 +63,13 @@ public class Dessin extends Canvas {
      */
     public void dessinSprites() {
         sprites.forEach(sprite -> { sprite.dessiner(tampon); });
+    }
+    
+    /**
+     * Méthode qui dessine la sortie du Labyrinthe.
+     */
+    public void dessinSortie() {
+        tampon.drawImage(exit, labyrinthe.getSortie().getX()*UNITE, labyrinthe.getSortie().getY()*UNITE, UNITE, UNITE);
     }
     
 }
