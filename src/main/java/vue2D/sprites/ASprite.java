@@ -58,7 +58,7 @@ public abstract class ASprite implements ISprite {
     }
     
     private float lerp(float posSprite, float posDest) {
-        float perCent = 0.1f;
+        float perCent = 0.15f;
         return posSprite + perCent * (posDest - posSprite);
     }
     

@@ -1,6 +1,5 @@
 package vue2D.sprites;
 
-import java.util.Collection;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -9,7 +8,6 @@ import labyrinthe.ISalle;
 import labyrinthe.Salle;
 import personnages.Heros;
 import personnages.IPersonnage;
-import vue2D.javafx.Dessin;
 
 /**
  * Classe HerosSprite
