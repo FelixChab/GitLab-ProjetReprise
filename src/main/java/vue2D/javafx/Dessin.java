@@ -5,7 +5,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import labyrinthe.ILabyrinthe;
+import labyrinthe.ISalle;
 import vue2D.sprites.ISprite;
+import vue2D.sprites.HerosSprite;
 
 /**
 * Classe Dessin
@@ -31,15 +33,14 @@ public class Dessin extends Canvas {
         setWidth(labyrinthe.getLargeur()*UNITE);
         setHeight(labyrinthe.getHauteur()*UNITE);
         tampon = this.getGraphicsContext2D();
-        chargementImages();
-        dessinFond(); 
+        chargementImages(); 
     }
     
     /**
      * Méthode qui charge les images utilisées par le jeu.
      */
     public final void chargementImages() {
-    	solImage = new Image("file:icons/pyramide.jpg");
+    	solImage = new Image("file:icons/black.png");
         ground = new Image("file:icons/ground.gif");
         exit = new Image("file:icons/sortie.gif");
     }
@@ -55,7 +56,7 @@ public class Dessin extends Canvas {
      * Méthode qui dessine les salles du Labyrinthe.
      */
     public void dessinSalles() {
-        labyrinthe.forEach(s -> { tampon.drawImage(ground, s.getX()*UNITE, s.getY()*UNITE, UNITE, UNITE); });
+        // Implémenter dans dessinEclairageSalles() !
     }
     
     /**
@@ -74,8 +75,39 @@ public class Dessin extends Canvas {
     
     /**
      * Méthode pour l'éclairage autour du Héros.
+     * @param hero le Héros.
      */
-    public void dessinEclairage() {
-        // pas implémenter 
+    public void dessinEclairageSalles(ISprite hero) {
+        // On parcours le Labyrinthe pour "masquer" les salles.
+        for (int i = 0; i < labyrinthe.size(); i++) {
+            tampon.setGlobalAlpha(0);
+        }
+        for (ISalle salle : labyrinthe) {
+            int distance = distanceHeros(salle, hero);
+            // Les salles à affichier.
+            if (distance <= 6 && distance >= -6) {
+                distance = -distance+5;
+                tampon.setGlobalAlpha(0.6*distance);
+                // dessinSalles()
+                tampon.drawImage(ground, salle.getX()*UNITE, salle.getY()*UNITE, UNITE, UNITE);
+            }
+        }
+        tampon.setGlobalAlpha(1);
     }
+    
+    /**
+     * Méthode qui renvoi la distance entre le héros et une salle donnée.
+     * @param salle la salle dont on veut savoir la distance.
+     * @param hero le personnage.
+     * @return le distance (en entier) entre la salle et le héros.
+     */
+    public int distanceHeros(ISalle salle, ISprite hero) {
+        int x = hero.getPosition().getX();
+        int y = hero.getPosition().getY();
+        int j = (hero.getPosition().getX() - salle.getX())*(hero.getPosition().getX() - salle.getX());
+        j += (hero.getPosition().getY() - salle.getY())*(hero.getPosition().getY() - salle.getY());
+        j = (int) Math.sqrt(j);
+        return j;
+    }
+    
 }

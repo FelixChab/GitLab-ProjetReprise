@@ -17,6 +17,7 @@ public class Vue extends AVue implements IVue {
     public Dessin dessin;
     public ILabyrinthe labyrinthe;
     public Scene scene;
+    private ISprite hero;
     
     /**
      * Constructeur de la classe Vue.
@@ -34,7 +35,7 @@ public class Vue extends AVue implements IVue {
     public void dessiner() {
      	// Recopie du fond (image): murs + salles
         dessin.dessinFond();
-        dessin.dessinSalles();
+        dessin.dessinEclairageSalles(hero);
         // Affichage de la sortie
         dessin.dessinSortie();
         // Chargement des sprites
@@ -49,6 +50,7 @@ public class Vue extends AVue implements IVue {
             System.out.println("Registering keylistener...");
             // Association de l'écouteur sur le clavier avec le composant graphique principal.
             this.scene.setOnKeyPressed((EventHandler)sprite);
+            hero = sprite;
         }
         return true;
     }
