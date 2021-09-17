@@ -1,0 +1,97 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>&lt;diagram program="umletino" version="14.4.0-SNAPSHOT"&gt;&lt;zoom_level&gt;10&lt;/zoom_level&gt;&lt;element&gt;&lt;id&gt;Relation&lt;/id&gt;&lt;coordinates&gt;&lt;x&gt;240&lt;/x&gt;&lt;y&gt;110&lt;/y&gt;&lt;w&gt;190&lt;/w&gt;&lt;h&gt;30&lt;/h&gt;&lt;/coordinates&gt;&lt;panel_attributes&gt;lt=&amp;lt;&amp;lt;-&lt;/panel_attributes&gt;&lt;additional_attributes&gt;10;10;170;10&lt;/additional_attributes&gt;&lt;/element&gt;&lt;/diagram&gt;Space for diagram notes</help_text><element><id>UMLPackage</id><coordinates><x>88</x><y>60</y><w>290</w><h>380</h></coordinates><panel_attributes>application
+--
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>418</x><y>320</y><w>280</w><h>120</h></coordinates><panel_attributes>Exceptions
+--
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>748</x><y>50</y><w>830</w><h>480</h></coordinates><panel_attributes>labyrinthe
+--
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>88</x><y>510</y><w>320</w><h>190</h></coordinates><panel_attributes>outils
+--
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>88</x><y>720</y><w>600</w><h>470</h></coordinates><panel_attributes>personnages
+--
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>759</x><y>650</y><w>520</w><h>400</h></coordinates><panel_attributes>vue2D
+--
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>110</y><w>220</w><h>90</h></coordinates><panel_attributes>MainJavaFX
+--
+- core: Core
+--
++ start(stage: Stage): void
+_+ main(args[]: String): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>331</x><y>150</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>150</y><w>100</w><h>30</h></coordinates><panel_attributes>/Application/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>122</x><y>240</y><w>220</w><h>150</h></coordinates><panel_attributes>Core
+--
+- heros: ISprite
+- labyrinthe: ILabyrinthe
+--
+# initLabyrinthe(): void
+# initSprites(vue: IVue): void
+# jeu(vue: IVue): void
+- chargementLaby(fic: String): void
+# temporisation(nb: int): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>442</x><y>360</y><w>230</w><h>60</h></coordinates><panel_attributes>ExceptionInvalidFile
+--
++ ExceptionInvalidFile(message: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>230</y><w>100</w><h>30</h></coordinates><panel_attributes>/IOException/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>240</y><w>60</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10;40;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>150</y><w>110</w><h>30</h></coordinates><panel_attributes>/ArrayList&lt;ISalle&gt;/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>778</x><y>100</y><w>340</w><h>190</h></coordinates><panel_attributes>Labyrinthe
+--
+# entree, sortie: ISalle
+- largeur, hauteur: int
+--
++ creerLabyrinthe(file: String)
++ sallesAccessibles(bob: IPersonnage): Collection&lt;ISalle&gt; 
+/throws ExceptionInvalidFile/
++ getEntree(): ISalle
++ getSortie(): ISalle
++ chemin(u, v: ISalle): Collection&lt;ISalle&gt;
++ getLargeur(): int
++ getHauteur(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>778</x><y>340</y><w>340</w><h>160</h></coordinates><panel_attributes>Salle
+--
++ salleX, salleY: int
+--
++ Salle(x, y: int)
++ getX(): int
++ getY(): int
++ estAdjacente(autre: ISalle) : boolean
++ hashCode(): int
++ equals(obj: Object): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>694</x><y>160</y><w>100</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;80;10</additional_attributes></element><element><id>UMLInterface</id><coordinates><x>1208</x><y>100</y><w>340</w><h>190</h></coordinates><panel_attributes>ILabyrinthe
+--
++ creerLabyrinthe(file: String)
++ sallesAccessibles(bob: IPersonnage): Collection&lt;ISalle&gt; 
+/throws IOException/
++ getEntree(): ISalle
++ getSortie(): ISalle
++ chemin(u, v: ISalle): Collection&lt;ISalle&gt;
++ getLargeur(): int
++ getHauteur(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1108</x><y>110</y><w>290</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>270;10;80;10;10;70</additional_attributes></element><element><id>UMLInterface</id><coordinates><x>1338</x><y>340</y><w>80</w><h>100</h></coordinates><panel_attributes>ISalle
+--
++ getX(): int
++ getY(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1328</x><y>0</y><w>110</w><h>30</h></coordinates><panel_attributes>/Collection&lt;ISalle&gt;/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1368</x><y>20</y><w>30</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1108</x><y>350</y><w>290</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>270;10;90;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>550</y><w>270</w><h>130</h></coordinates><panel_attributes>Fichier
+--
+- sc: Scanner
+--
++ Fichier(nomFichier: String)
++ lireNombre(): int
++ testValide(nomFichier: String): boolean
++ testPasDeDoublonFichier(f: File): boolean
++ testCoordonneesSallesFichier(f: File): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>109</x><y>760</y><w>180</w><h>150</h></coordinates><panel_attributes>/APersonnage/
+--
++ posX, posY: int
++ position: ISalle
+--
++ APersonnage(x, y: int)
++ getPosX(): int
++ getPosY(): int
++ getPosition(): ISalle
++ setPosition(s: ISalle): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLInterface</id><coordinates><x>330</x><y>760</y><w>340</w><h>120</h></coordinates><panel_attributes>IPersonnage
+--
++ faitSonChoix(sallesAccessibles: Collection&lt;ISalle&gt;): ISalle
++ getPosition(): ISalle
++ setPosition(s: ISalle): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>770</y><w>240</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>220;10;50;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>940</y><w>340</w><h>100</h></coordinates><panel_attributes>Heros
+--
++ salleChoisie: ISalle
+-- 
++ Heros(x, y: int)
++ faitSonChoix(sallesAccessibles: Collection&lt;ISalle&gt;): ISalle</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>1060</y><w>340</w><h>100</h></coordinates><panel_attributes>Monstre
+--
++ salleChoisie: ISalle
+-- 
++ Monstre(x, y: int)
++ faitSonChoix(sallesAccessibles: Collection&lt;ISalle&gt;): ISalle</panel_attributes><additional_attributes></additional_attributes></element></diagram>
