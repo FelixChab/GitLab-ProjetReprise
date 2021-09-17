@@ -1,6 +1,6 @@
 **RAPPORT DE PROJET**
 
-###
+### ### ###
 
  _Séances du 06/09:_
 
@@ -10,7 +10,7 @@ Matin:
 Après-Midi: 
 - fin de la conception du diagramme et début de la programmation.
 
-###
+### ### ###
 
  _Séances du 07/09:_
 
@@ -20,7 +20,7 @@ Matin:
 Après-Midi: 
 - début de l'objectif 2 (tests unitaires).
 
-###
+### ### ###
 
  _Séances du 08/09:_
 
@@ -30,7 +30,7 @@ Matin:
 Après-Midi: 
 - temps libre.
 
-###
+### ### ###
 
  _Séances du 09/09:_
 
@@ -40,7 +40,7 @@ Matin:
 Après-Midi: 
 - temps libre.
 
-###
+### ### ###
 
  _Séances du 10/09:_
 
@@ -50,7 +50,7 @@ Matin:
 Après-Midi: 
 - temps libre.
 
-###
+### ### ###
 
  _Séances du 13/09:_
 
@@ -60,7 +60,7 @@ Matin:
 Après-Midi: 
 - fin de l'objectif 4 (réglages monstres et fix).
 
-###
+### ### ###
 
  _Séances du 14/09:_
 
@@ -70,7 +70,7 @@ Matin:
 Après-Midi: 
 - continuation de l'objectif 5 (déplacement fluide intégré + début d'intégration éclairage).
 
-###
+### ### ###
 
 _Séance du 15/09:_
 
@@ -80,7 +80,7 @@ Matin:
 Après-Midi:
 - temps libre.
 
-###
+### ### ###
 
 _Séance du 17/09_
 
