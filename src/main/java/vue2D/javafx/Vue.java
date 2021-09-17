@@ -17,7 +17,7 @@ public class Vue extends AVue implements IVue {
     public Dessin dessin;
     public ILabyrinthe labyrinthe;
     public Scene scene;
-    private ISprite hero;
+    private ISprite hero, monstre;
     
     /**
      * Constructeur de la classe Vue.
